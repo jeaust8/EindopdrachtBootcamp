@@ -1,4 +1,4 @@
-package com.example.GarageApp.Product;
+package nl.aartj.GarageApp.Product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

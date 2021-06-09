@@ -1,4 +1,4 @@
-package com.example.GarageApp.Customer;
+package nl.aartj.GarageApp.Customer;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -19,8 +19,7 @@ public class CustomerConfig {
                     "8101AA",
                     "Raalte",
                     "joost.van.aartsen@gmail.com",
-                    "0572-556655",
-                    "10-MA-21"
+                    "0572-556655"
             );
 
             Customer mel = new Customer(
@@ -30,8 +29,7 @@ public class CustomerConfig {
                     "6565TT",
                     "Bemmel",
                     "m.van.veen@gmail.com",
-                    "0582-668899",
-                    "08-NV-21"
+                    "0582-668899"
             );
 
             Customer arjen = new Customer(
@@ -41,8 +39,7 @@ public class CustomerConfig {
                     "8101AE",
                     "Groningen",
                     "arjen.robben@gmail.com",
-                    "0487-555666",
-                    "54-YT-08"
+                    "0487-555666"
             );
 
             Customer bill = new Customer(
@@ -52,8 +49,7 @@ public class CustomerConfig {
                     "5757RT",
                     "America",
                     "bill.gates@microsoft.nl",
-                    "06-35523456",
-                    "64-YI-99"
+                    "06-35523456"
             );
 
             repository.saveAll(

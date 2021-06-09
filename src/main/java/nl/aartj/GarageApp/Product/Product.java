@@ -1,4 +1,4 @@
-package com.example.GarageApp.Product;
+package nl.aartj.GarageApp.Product;
 
 import javax.persistence.*;
 

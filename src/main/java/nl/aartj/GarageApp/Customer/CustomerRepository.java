@@ -1,4 +1,4 @@
-package com.example.GarageApp.Customer;
+package nl.aartj.GarageApp.Customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,5 +20,4 @@ public interface CustomerRepository
     Optional<Customer> findCustomerByCity(String city);
     Optional<Customer> findCustomerByEmail(String email);
     Optional<Customer> findCustomerByPhoneNumber(String phoneNumber);
-    Optional<Customer> findCustomerByLicensePlateNumber(String licensePlateNumber);
 }

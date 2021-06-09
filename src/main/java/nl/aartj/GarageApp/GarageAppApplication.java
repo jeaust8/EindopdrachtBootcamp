@@ -1,4 +1,4 @@
-package com.example.GarageApp;
+package nl.aartj.GarageApp;
 
 
 import org.springframework.boot.SpringApplication;

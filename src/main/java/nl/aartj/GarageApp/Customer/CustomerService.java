@@ -1,4 +1,4 @@
-package com.example.GarageApp.Customer;
+package nl.aartj.GarageApp.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,8 +47,7 @@ public class CustomerService {
                                String zipCode,
                                String city,
                                String email,
-                               String phoneNumber,
-                               String licensePlateNumber) {
+                               String phoneNumber) {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new IllegalStateException(
                         "Customer with Id " + customerId + " does not exist"

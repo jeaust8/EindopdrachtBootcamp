@@ -1,4 +1,4 @@
-package com.example.GarageApp.Customer;
+package nl.aartj.GarageApp.Customer;
 
 import javax.persistence.*;
 
@@ -23,12 +23,11 @@ public class Customer {
     private String city;
     private String email;
     private String phoneNumber;
-    private String licensePlateNumber;
 
     public Customer() {
     }
 
-    public Customer(Long customerId, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String licensePlateNumber) {
+    public Customer(Long customerId, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber) {
         this.customerId = customerId;
         this.name = name;
         this.surName = surName;
@@ -37,10 +36,9 @@ public class Customer {
         this.city = city;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.licensePlateNumber = licensePlateNumber;
     }
 
-    public Customer(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String licensePlateNumber) {
+    public Customer(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber) {
         this.name = name;
         this.surName = surName;
         this.address = address;
@@ -48,7 +46,7 @@ public class Customer {
         this.city = city;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.licensePlateNumber = licensePlateNumber;
+
     }
 
     public Long getCustomerId() {
@@ -103,14 +101,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLicensePlateNumber() {
-        return licensePlateNumber;
-    }
-
-    public void setLicensePlateNumber(String licensePlateNumber) {
-        this.licensePlateNumber = licensePlateNumber;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
@@ -122,7 +112,6 @@ public class Customer {
                 ", city='" + city + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber -'" + phoneNumber + '\'' +
-                ", licensePlateNumber='" + licensePlateNumber + '\'' +
                 '}';
     }
 }

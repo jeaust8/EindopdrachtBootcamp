@@ -1,4 +1,4 @@
-package com.example.GarageApp.Customer;
+package nl.aartj.GarageApp.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,8 +40,7 @@ public class CustomerController {
                 @RequestParam(required = false) String zipCode,
                 @RequestParam(required = false) String city,
                 @RequestParam(required = false) String email,
-                @RequestParam(required = false) String phoneNumber,
-                @RequestParam(required = false) String licensePlateNumber) {
-            customerService.updateCustomer(customerId, name, surName, address, zipCode, city, email, phoneNumber, licensePlateNumber);
+                @RequestParam(required = false) String phoneNumber) {
+            customerService.updateCustomer(customerId, name, surName, address, zipCode, city, email, phoneNumber);
         }
 }
