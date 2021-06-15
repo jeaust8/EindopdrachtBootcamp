@@ -75,15 +75,15 @@ public class Customer {
 
     public String getAddress() { return address; }
 
-    public void setAddress() { this.address = address; }
+    public void setAddress(String address) { this.address = this.address; }
 
     public String getZipCode() { return zipCode; }
 
-    public void setZipCode() { this.zipCode = zipCode; }
+    public void setZipCode(String zipCode) { this.zipCode = this.zipCode; }
 
     public String getCity() { return city; }
 
-    public void setCity() { this.city = city; }
+    public void setCity(String city) { this.city = this.city; }
 
     public String getEmail() {
         return email;

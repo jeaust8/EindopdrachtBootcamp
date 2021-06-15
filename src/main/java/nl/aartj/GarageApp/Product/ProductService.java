@@ -36,16 +36,16 @@ import java.util.Optional;
             if (productOptional.isEmpty()) {
                 throw new IllegalStateException("Product met titel " + productId + " bestaat niet.");
             }
-            productRepository.deleteByTitle(productId);
+            productRepository.deleteByProductId(productId);
         }
 
         @Transactional
         public void updateProduct(Long productId, String title,
                                    Double price
                                    ) {
-            Product product = productRepository.findProductByTitle(title)
+            Product product = productRepository.findProductByProductId(productId)
                     .orElseThrow(() -> new IllegalStateException(
-                            "Product " + title + " does not exist"
+                            "Product " + productId + " does not exist"
                     ));
 
             if (title != null &&
@@ -54,7 +54,6 @@ import java.util.Optional;
                 product.setTitle(title);
                 product.setPrice(price);
             }
-
 
             productRepository.saveAll(List.of(product));
         }

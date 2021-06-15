@@ -59,6 +59,30 @@ public class CustomerService {
             customer.setName(name);
         }
 
+        if (surName != null &&
+                surName.length() > 0 &&
+                !Objects.equals(customer.getSurName(), surName)) {
+            customer.setSurName(surName);
+        }
+
+        if (address != null &&
+                address.length() > 0 &&
+                !Objects.equals(customer.getAddress(), address)) {
+            customer.setAddress(address);
+        }
+
+        if (zipCode != null &&
+                zipCode.length() > 0 &&
+                !Objects.equals(customer.getZipCode(), zipCode)) {
+            customer.setZipCode(zipCode);
+        }
+
+        if (city != null &&
+                city.length() > 0 &&
+                !Objects.equals(customer.getCity(), city)) {
+            customer.setCity(city);
+        }
+
         if (email != null &&
                 email.length() > 0 &&
                 !Objects.equals(customer.getEmail(), email)) {
@@ -67,6 +91,12 @@ public class CustomerService {
                 throw new IllegalStateException("E-mail reeds in gebruik");
             }
             customer.setEmail(email);
+
+            if (phoneNumber != null &&
+                    phoneNumber.length() > 0 &&
+                    !Objects.equals(customer.getPhoneNumber(), phoneNumber)) {
+                customer.setName(phoneNumber);
+            }
         }
         customerRepository.saveAll(List.of(customer));
     }
