@@ -2,9 +2,6 @@ package nl.aartj.GarageApp.Customer;
 
 import javax.persistence.*;
 
-//TODO: Customer aanpassen naar CustomerAccount
-//TODO: wachtwoorden maken in de accountconfig
-
 @Entity
 @Table
 public class CustomerAccount {
