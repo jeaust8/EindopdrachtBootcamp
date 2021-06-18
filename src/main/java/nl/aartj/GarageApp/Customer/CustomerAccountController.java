@@ -2,33 +2,38 @@ package nl.aartj.GarageApp.Customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/customer")
-public class CustomerController {
+public class CustomerAccountController {
 
-    private final CustomerService customerService;
+    private final CustomerAccountService customerAccountService;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerAccountController(CustomerAccountService customerAccountService) {
+        this.customerAccountService = customerAccountService;
+    }
+
+    @GetMapping(path = "/profile/{customerId}")
+    public List<CustomerAccount> getProfile(@PathVariable("customerId") Long customerId){
+        return customerAccountService.getProfile(customerId);
     }
 
     @GetMapping
-    public List<Customer> getCustomers() {
-        return customerService.getCustomers();
+    public List<CustomerAccount> getCustomers() {
+        return customerAccountService.getCustomers();
     }
 
     @PostMapping
-    public void registerNewCustomer(@RequestBody Customer customer) {
-        customerService.addNewCustomer(customer);
+    public void registerNewCustomer(@RequestBody CustomerAccount customerAccount) {
+        customerAccountService.addNewCustomer(customerAccount);
     }
 
     @DeleteMapping(path = "{customerId}")
     public void deleteCustomer(@PathVariable("customerId") Long customerId) {
-        customerService.deleteCustomer(customerId);
+        customerAccountService.deleteCustomer(customerId);
     }
 
     @PutMapping(path= "{customerId}")
@@ -41,6 +46,6 @@ public class CustomerController {
                 @RequestParam(required = false) String city,
                 @RequestParam(required = false) String email,
                 @RequestParam(required = false) String phoneNumber) {
-            customerService.updateCustomer(customerId, name, surName, address, zipCode, city, email, phoneNumber);
+            customerAccountService.updateCustomer(customerId, name, surName, address, zipCode, city, email, phoneNumber);
         }
 }

@@ -2,9 +2,12 @@ package nl.aartj.GarageApp.Customer;
 
 import javax.persistence.*;
 
+//TODO: Customer aanpassen naar CustomerAccount
+//TODO: wachtwoorden maken in de accountconfig
+
 @Entity
 @Table
-public class Customer {
+public class CustomerAccount {
     @Id
     @SequenceGenerator(
             name = "customer_sequence",
@@ -15,7 +18,7 @@ public class Customer {
             strategy = GenerationType.SEQUENCE,
             generator = "customer_sequence"
     )
-    private Long customerId;
+    private Long id;
     private String name;
     private String surName;
     private String address;
@@ -23,12 +26,13 @@ public class Customer {
     private String city;
     private String email;
     private String phoneNumber;
+    private String password;
 
-    public Customer() {
+    public CustomerAccount() {
     }
 
-    public Customer(Long customerId, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber) {
-        this.customerId = customerId;
+    public CustomerAccount(Long id, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password) {
+        this.id = id;
         this.name = name;
         this.surName = surName;
         this.address = address;
@@ -36,9 +40,10 @@ public class Customer {
         this.city = city;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
-    public Customer(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber) {
+    public CustomerAccount(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password) {
         this.name = name;
         this.surName = surName;
         this.address = address;
@@ -46,15 +51,16 @@ public class Customer {
         this.city = city;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.password = password;
 
     }
 
-    public Long getCustomerId() {
-        return customerId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -101,19 +107,27 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
+
+
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + customerId +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", surName='" + surName + '\'' +
                 ", address='" + address + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", city='" + city + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber -'" + phoneNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
+
+
 }
 
 

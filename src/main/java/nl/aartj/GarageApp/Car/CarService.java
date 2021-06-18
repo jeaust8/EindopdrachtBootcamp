@@ -41,7 +41,7 @@ public class CarService {
                           String model,
                           String licensePlate){
         Car car = carRepository.findCarByCarId(carId).orElseThrow(() -> new IllegalStateException(
-                "Car with Id " + carId + " does not exist"
+                "Auto met Id " + carId + " staat niet in het systeem."
         ));
 
         if (brand != null &&

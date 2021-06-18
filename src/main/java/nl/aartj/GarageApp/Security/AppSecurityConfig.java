@@ -1,13 +1,22 @@
 package nl.aartj.GarageApp.Security;
 
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import static nl.aartj.GarageApp.Security.AppUserPermission.*;
+import static nl.aartj.GarageApp.Security.AppUserRole.*;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -15,7 +24,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    public ApplicationSecurityConfig(PasswordEncoder passwordEncoder, userDetailsServiceImpl userDetailsService){
+    public AppSecurityConfig(PasswordEncoder passwordEncoder, UserDetailsServiceImpl userDetailsService){
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService;
     }
@@ -29,11 +38,9 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .crsf().disable()
-                .authorizedRequests()
+                .csrf().disable()
+                .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-                .antMatchers(HttpMethod.GET, "GarageApp/api/customers").hasAuthority(CUSTOMER_READ.getPermission())
-                .antMatchers("/GarageApp/api/**").hasAnyRole(MANAGER.name(), MECHANIC.name(), ADMIN.name())
                 .anyRequest()
                 .authenticated()
                 .and()
