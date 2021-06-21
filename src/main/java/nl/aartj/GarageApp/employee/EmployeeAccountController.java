@@ -29,14 +29,14 @@ public class EmployeeAccountController {
     public List<EmployeeAccount> getEmployeeAccount()
     {return employeeAccountService.getEmployeeAccounts();}
 
-    // http://localhost:8080/api/v1/employee/customer/new
+    // http://localhost:8080/api/v1/employee/list
 
     @GetMapping(path = "/tasks/pickup")
     public List<Task> getFinishedCars(){
         return taskService.getFinishedTasks();
     }
 
-    @PostMapping(path = "/customer/new")
+    @PostMapping(path = "/employee/new")
     public String addEmployee(
             @RequestParam(required = true) String name,
             @RequestParam(required = true) String surName,

@@ -55,68 +55,12 @@ public class Examination {
         this.id = id;
     }
 
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Long getCarId() {
-        return carId;
-    }
-
-    public void setCarId(Long carId) {
-        this.carId = carId;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public boolean isCarApproved(boolean b) {
         return carApproved;
     }
 
     public void setCarApproved(boolean carApproved) {
         this.carApproved = carApproved;
-    }
-
-    public boolean isRepairNecessary(boolean b) {
-        return repairNecessary;
-    }
-
-    public void setRepairNecessary(boolean repairNecessary) {
-        this.repairNecessary = repairNecessary;
-    }
-
-    public boolean isCustomerConsent() {
-        return customerConsent;
-    }
-
-    public void setCustomerConsent(boolean customerConsent) {
-        this.customerConsent = customerConsent;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     @Override
