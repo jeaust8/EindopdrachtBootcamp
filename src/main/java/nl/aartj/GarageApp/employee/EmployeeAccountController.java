@@ -37,7 +37,7 @@ public class EmployeeAccountController {
     }
 
     @PostMapping(path = "/customer/new")
-    public String addCustomer(
+    public String addEmployee(
             @RequestParam(required = true) String name,
             @RequestParam(required = true) String surName,
             @RequestParam(required = true) String address,
@@ -45,11 +45,12 @@ public class EmployeeAccountController {
             @RequestParam(required = true) String city,
             @RequestParam(required = true) String email,
             @RequestParam(required = true) String phoneNumber,
-            @RequestParam(required = true) String password){
+            @RequestParam(required = true) String password,
+            @RequestParam(required = true) String role){
 
-        CustomerAccount newAccount = new CustomerAccount(name, surName, address, zipCode, city, email, phoneNumber, password);
+        EmployeeAccount newEmployeeAccount = new EmployeeAccount(name, surName, address, zipCode, city, email, phoneNumber, password, role);
 
-        return accountService.addNewCustomer(newAccount);
+        return employeeAccountService.addNewEmployeeAccount(newEmployeeAccount);
 
     }
 }

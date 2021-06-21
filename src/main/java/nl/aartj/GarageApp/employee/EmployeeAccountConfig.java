@@ -23,7 +23,17 @@ public class EmployeeAccountConfig {
                     "070-559955",
                     "mark.rutte@gmail.com",
                     "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
-                    MANAGER.name()); //wachtwoord welkom2021
+                    MANAGER.name()); //wachtwoord: welkom2021!
+            EmployeeAccount frank = new EmployeeAccount(
+                    "Frank",
+                    "de Boer",
+                    "Rondweg 4",
+                    "3713QW",
+                    "Monnickendam",
+                    "020-898989",
+                    "frank.deboer@gmail.com",
+                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
+                    BACKOFFICE.name()); //wachtwoord: welkom2021!
             EmployeeAccount hugo = new EmployeeAccount(
                     "Hugo",
                     "de Jonge",
@@ -33,7 +43,7 @@ public class EmployeeAccountConfig {
                     "010-797979",
                     "hugo.dejonge@gmail.com",
                     "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
-                    ADMIN.name()); //wachtwoord welkom2021
+                    ADMIN.name()); //wachtwoord: welkom2021!
             EmployeeAccount denzel = new EmployeeAccount(
                     "Denzel",
                     "Dumfries",
@@ -43,7 +53,7 @@ public class EmployeeAccountConfig {
                     "010-223322",
                     "denzel.dumfries@gmail.com",
                     "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
-                    MECHANIC.name()); //wachtwoord welkom2021
+                    MECHANIC.name()); //wachtwoord: welkom2021!
             EmployeeAccount daley = new EmployeeAccount(
                     "Daley",
                     "Blind",
@@ -53,9 +63,9 @@ public class EmployeeAccountConfig {
                     "020-171717",
                     "daley.blind@gmail.com",
                     "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
-                    MECHANIC.name()); //wachtwoord welkom2021
+                    MECHANIC.name()); //wachtwoord: welkom2021!
 
-            repository.saveAll(List.of(mark, hugo, denzel, daley));
+            repository.saveAll(List.of(mark, frank, hugo, denzel, daley));
         };
     }
 }

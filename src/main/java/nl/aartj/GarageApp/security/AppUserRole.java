@@ -13,7 +13,7 @@ public enum AppUserRole {
     MECHANIC(Sets.newHashSet(CUSTOMER_READ, CAR_READ, CAR_WRITE)),
     ADMIN(Sets.newHashSet(CUSTOMER_READ, CUSTOMER_WRITE, CAR_READ, CAR_WRITE, PRODUCT_READ, PRODUCT_WRITE)),
     BACKOFFICE(Sets.newHashSet(CUSTOMER_READ, CUSTOMER_WRITE, CAR_READ, CAR_WRITE, PRODUCT_READ, PRODUCT_WRITE)),
-    CUSTOMER(Sets.newHashSet((CAR_READ))); //BILL_READ
+    CUSTOMER(Sets.newHashSet(CAR_READ, BILL_READ));
 
 
     private final Set<AppUserPermission> permissions;

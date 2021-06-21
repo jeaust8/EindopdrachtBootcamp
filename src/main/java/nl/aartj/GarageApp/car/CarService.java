@@ -21,7 +21,7 @@ public class CarService {
     public List<Car> getCars(){return carRepository.findAll();}
 
     public void addNewCar(Car car){
-        Optional<Car> carOptional = carRepository.findCarByCarId(car.getCarId());
+        Optional<Car> carOptional = carRepository.findById(car.getId());
         if (carOptional.isPresent()){
     throw new IllegalStateException("Auto reeds in het systeem.");
         }
@@ -40,7 +40,7 @@ public class CarService {
                           String brand,
                           String model,
                           String licensePlate){
-        Car car = carRepository.findCarByCarId(carId).orElseThrow(() -> new IllegalStateException(
+        Car car = carRepository.findById(carId).orElseThrow(() -> new IllegalStateException(
                 "Auto met Id " + carId + " staat niet in het systeem."
         ));
 

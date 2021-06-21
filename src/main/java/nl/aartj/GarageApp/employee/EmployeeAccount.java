@@ -9,7 +9,7 @@ public class EmployeeAccount {
     @Id
     @SequenceGenerator(name = "employee_sequence", sequenceName = "employee_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_sequence")
-    private Long employeeId;
+    private Long id;
     private String name;
     private String surName;
     private String address;
@@ -35,12 +35,12 @@ public EmployeeAccount(){
         this.role = role;
     }
 
-    public Long getEmployeeId() {
-        return employeeId;
+    public Long getId() {
+        return id;
     }
 
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
+    public void setId(Long employeeId) {
+        this.id = employeeId;
     }
 
     public String getName() {

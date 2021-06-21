@@ -1,11 +1,11 @@
-package nl.aartj.GarageApp.placedTask;
+package nl.aartj.GarageApp.postedTask;
 
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class PlacedTask {
+public class PostedTask {
 
     @Id
     @SequenceGenerator(name = "task_sequence", sequenceName = "task_sequence", allocationSize = 1)
@@ -17,13 +17,13 @@ public class PlacedTask {
     private boolean customerConsent;
     private String payment;
     private String status;
-    private boolean pickup;
 
-    public PlacedTask(){
+
+    public PostedTask(){
 
     }
 
-    public PlacedTask(Long id, Long customerId, String taskDate, double priceTotal, boolean customerConsent, String payment, String status, boolean pickup) {
+    public PostedTask(Long id, Long customerId, String taskDate, double priceTotal, boolean customerConsent, String payment, String status) {
         this.id = id;
         this.customerId = customerId;
         this.taskDate = taskDate;
@@ -31,7 +31,6 @@ public class PlacedTask {
         this.customerConsent = customerConsent;
         this.payment = payment;
         this.status = status;
-        this.pickup = pickup;
     }
 
     public Long getId() {
@@ -57,6 +56,8 @@ public class PlacedTask {
     public void setTaskDate(String taskDate) {
         this.taskDate = taskDate;
     }
+
+
 
     public double getPriceTotal() {
         return priceTotal;
@@ -90,11 +91,7 @@ public class PlacedTask {
         this.status = status;
     }
 
-    public boolean isPickup() {
-        return pickup;
-    }
 
-    public void setPickup(boolean taskReady) {
-        this.pickup = taskReady;
-    }
+
+
 }

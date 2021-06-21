@@ -24,11 +24,12 @@ public class CustomerAccount {
     private String email;
     private String phoneNumber;
     private String password;
+    private String role;
 
     public CustomerAccount() {
     }
 
-    public CustomerAccount(Long id, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password) {
+    public CustomerAccount(Long id, String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password, String role) {
         this.id = id;
         this.name = name;
         this.surName = surName;
@@ -38,9 +39,10 @@ public class CustomerAccount {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.role = role;
     }
 
-    public CustomerAccount(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password) {
+    public CustomerAccount(String name, String surName, String address, String zipCode, String city, String email, String phoneNumber, String password, String role) {
         this.name = name;
         this.surName = surName;
         this.address = address;
@@ -49,6 +51,7 @@ public class CustomerAccount {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.role = role;
 
     }
 
@@ -108,6 +111,13 @@ public class CustomerAccount {
 
     public void setPassword(String password) {this.password = password;}
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
@@ -121,6 +131,7 @@ public class CustomerAccount {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 

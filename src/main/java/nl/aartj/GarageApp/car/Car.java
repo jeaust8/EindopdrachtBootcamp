@@ -15,7 +15,7 @@ public class Car {
             strategy = GenerationType.SEQUENCE,
             generator = "car_sequence"
     )
-    private Long carId;
+    private Long id;
     private Long customerId;
     private String brand;
     private String model;
@@ -24,8 +24,8 @@ public class Car {
     public Car() {
     }
 
-    public Car(Long carId, Long customerId, String brand, String model, String licensePlate) {
-        this.carId = carId;
+    public Car(Long id, Long customerId, String brand, String model, String licensePlate) {
+        this.id = id;
         this.customerId = customerId;
         this.brand = brand;
         this.model = model;
@@ -39,12 +39,12 @@ public class Car {
         this.licensePlate = licensePlate;
     }
 
-    public Long getCarId() {
-        return carId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCarId(Long carId) {
-        this.carId = carId;
+    public void setId(Long carId) {
+        this.id = carId;
     }
 
     public Long getCustomerId() {
@@ -83,7 +83,7 @@ public class Car {
     public String
     toString() {
         return "Car{" +
-                "carId=" + carId +
+                "carId=" + id +
                 ", customerId=" + customerId +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +

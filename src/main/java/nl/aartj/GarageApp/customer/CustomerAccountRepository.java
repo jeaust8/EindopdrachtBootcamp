@@ -19,5 +19,5 @@ public interface CustomerAccountRepository
     Optional<CustomerAccount> findCustomerByEmail(String email);
     Optional<CustomerAccount> findCustomerByPhoneNumber(String phoneNumber);
 
-    Optional<CustomerAccount> findAccountByEmail(String email);
+    Optional<CustomerAccount> findCustomerAccountByEmail(String email);
 }

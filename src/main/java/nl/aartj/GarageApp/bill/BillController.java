@@ -1,12 +1,8 @@
 package nl.aartj.GarageApp.bill;
 
-import nl.aartj.GarageApp.placedTask.PlacedTaskRepository;
+import nl.aartj.GarageApp.postedTask.PostedTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,12 +11,12 @@ import java.util.List;
 public class BillController {
 
     private final BillService billService;
-    private final PlacedTaskRepository placedTaskRepository;
+    private final PostedTaskRepository postedTaskRepository;
 
     @Autowired
-    public BillController(BillService billService, PlacedTaskRepository placedTaskRepository){
+    public BillController(BillService billService, PostedTaskRepository postedTaskRepository){
         this.billService = billService;
-        this.placedTaskRepository = placedTaskRepository;
+        this.postedTaskRepository = postedTaskRepository;
     }
 
     @GetMapping

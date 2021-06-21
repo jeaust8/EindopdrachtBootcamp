@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+import static nl.aartj.GarageApp.security.AppUserRole.CUSTOMER;
+
 @Configuration
 public class CustomerAccountConfig {
 
@@ -20,8 +22,8 @@ public class CustomerAccountConfig {
                     "Raalte",
                     "joost.van.aartsen@gmail.com",
                     "0572-556655",
-                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q"
-            );
+                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
+                    CUSTOMER.name()); //wachtwoord: welkom2021!
 
             CustomerAccount mel = new CustomerAccount(
                     "Mel",
@@ -31,8 +33,8 @@ public class CustomerAccountConfig {
                     "Bemmel",
                     "vanveenmel11@gmail.com",
                     "0582-668899",
-                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q"
-            );
+                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
+                    CUSTOMER.name()); //wachtwoord: welkom2021!
 
             CustomerAccount arjen = new CustomerAccount(
                     "Arjen",
@@ -42,8 +44,8 @@ public class CustomerAccountConfig {
                     "Groningen",
                     "arjen.robben@gmail.com",
                     "0487-555666",
-                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q"
-            );
+                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
+                    CUSTOMER.name()); //wachtwoord: welkom2021!
 
             CustomerAccount bill = new CustomerAccount(
                     "Bill",
@@ -53,8 +55,8 @@ public class CustomerAccountConfig {
                     "America",
                     "bill.gates@microsoft.nl",
                     "06-35523456",
-                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q"
-            );
+                    "$2y$10$ScKk0yZEtJNpDIJHbxIEa.ZW8aZfh/xY.kxIHs7aQ2AlqY6SCw30q",
+                    CUSTOMER.name()); //wachtwoord: welkom2021!
 
             repository.saveAll(
                     List.of(joost, mel, arjen, bill)

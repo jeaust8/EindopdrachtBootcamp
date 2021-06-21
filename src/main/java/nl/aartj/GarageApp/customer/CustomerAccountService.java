@@ -18,8 +18,8 @@ public class CustomerAccountService {
         this.customerAccountRepository = customerAccountRepository;
     }
 
-    public Optional<CustomerAccount> getAccountByEmail(String email){
-        return customerAccountRepository.findAccountByEmail(email);
+    public Optional<CustomerAccount> getCustomerByEmail(String email){
+        return customerAccountRepository.findCustomerAccountByEmail(email);
     }
 
     public List<CustomerAccount> getCustomers() {

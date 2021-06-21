@@ -1,8 +1,9 @@
 package nl.aartj.GarageApp.bill;
 
 
-import nl.aartj.GarageApp.placedTask.PlacedTaskRepository;
+import nl.aartj.GarageApp.postedTask.PostedTaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,12 +14,13 @@ import java.util.List;
 public class BillService {
 
     private final BillRepository billRepository;
-    private final PlacedTaskRepository placedTaskRepository;
+    private final PostedTaskRepository postedTaskRepository;
+    private EntityManager entityManager;
 
     @Autowired
-    public BillService(BillRepository billRepository, PlacedTaskRepository placedTaskRepository){
+    public BillService(BillRepository billRepository, PostedTaskRepository postedTaskRepository){
         this.billRepository = billRepository;
-        this.placedTaskRepository = placedTaskRepository;
+        this.postedTaskRepository = postedTaskRepository;
     }
 
     public List<Bill> getBills(){

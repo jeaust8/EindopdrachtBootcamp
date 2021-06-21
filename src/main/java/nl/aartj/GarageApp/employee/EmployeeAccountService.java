@@ -21,23 +21,23 @@ public class EmployeeAccountService {
         this.employeeAccountRepository = employeeAccountRepository;
     }
 
-    public Optional<EmployeeAccount> getAccountByEmail(String email){
-        return employeeAccountRepository.findAccountByEmail(email);
+    public Optional<EmployeeAccount> getEmployeeByEmail(String email){
+        return employeeAccountRepository.findEmployeeByEmail(email);
     }
 
-    public String getAccountInfo(Long accountId){
-        String accountInfo = "Naam: " + employeeAccountRepository.findById(accountId).get().getName() + " " +
-                employeeAccountRepository.findById(accountId).get().getSurName() + "\n" +
-                "Adres: " + employeeAccountRepository.findById(accountId).get().getAddress() + ", " +
-                employeeAccountRepository.findById(accountId).get().getZipCode() + " " +
-                employeeAccountRepository.findById(accountId).get().getCity() + "\n" +
-                "E-mailadres: " + employeeAccountRepository.findById(accountId).get().getEmail();
+    public String getEmployeeInfo(Long employeeId){
+        String employeeInfo = "Naam: " + employeeAccountRepository.findById(employeeId).get().getName() + " " +
+                employeeAccountRepository.findById(employeeId).get().getSurName() + "\n" +
+                "Adres: " + employeeAccountRepository.findById(employeeId).get().getAddress() + ", " +
+                employeeAccountRepository.findById(employeeId).get().getZipCode() + " " +
+                employeeAccountRepository.findById(employeeId).get().getCity() + "\n" +
+                "E-mailadres: " + employeeAccountRepository.findById(employeeId).get().getEmail();
 
-        return accountInfo;
+        return employeeInfo;
     }
 
     @Transactional
-    public void updateAccount(Long accountId,
+    public void updateEmployee(Long employeeId,
                               String name,
                               String surName,
                               String email,
@@ -45,9 +45,10 @@ public class EmployeeAccountService {
                               String address,
                               String zipCode,
                               String city,
-                              String password){
-        EmployeeAccount employeeAccount = employeeAccountRepository.findById(accountId).orElseThrow(() -> new IllegalStateException(
-                "Account met id " + accountId + " bestaat niet."));
+                              String password,
+                              String role){
+        EmployeeAccount employeeAccount = employeeAccountRepository.findById(employeeId).orElseThrow(() -> new IllegalStateException(
+                "Account met id " + employeeId + " bestaat niet."));
 
         password = passwordEncoder.encode(password);
 
@@ -58,7 +59,7 @@ public class EmployeeAccountService {
             employeeAccount.setSurName(surName);
         }
         if (email != null && email.length() > 0 && !Objects.equals(employeeAccount.getEmail(), email)) {
-            Optional<EmployeeAccount> accountOptional = employeeAccountRepository.findAccountByEmail(email);
+            Optional<EmployeeAccount> accountOptional = employeeAccountRepository.findEmployeeByEmail(email);
             if (accountOptional.isPresent()) {
                 throw new IllegalStateException("E-mailadres reeds in gebruik.");
             } else {
@@ -84,30 +85,22 @@ public class EmployeeAccountService {
         employeeAccountRepository.saveAll(List.of(employeeAccount));
     }
 
-    public List<EmployeeAccount> getAccounts() {
-        return employeeAccountRepository.findAll();
-    }
-
-    public Optional<EmployeeAccount> getAccount(String email) {
-        return employeeAccountRepository.findAccountByEmail(email);
-    }
-
     public List<EmployeeAccount> getEmployeeAccounts() {
         return employeeAccountRepository.findAll();
     }
 
-//    public ArrayList<PlacedOrder> getOrders(Long accountId) {
-//        ArrayList<PlacedOrder> placedOrders = new ArrayList<PlacedOrder>();
-//        placedOrders.addAll(placedOrderRepository.findAll());
-//        int i = 0;
-//
-//        for (PlacedOrder placedOrder: placedOrders) {
-//            if(!placedOrder.getCustomerId().equals(accountId)){
-//                placedOrders.remove(i);
-//            }
-//            i++;
-//
-//        }
-//        return placedOrders;
-//    }
+    public Optional<EmployeeAccount> getEmployeeAccount(String email) {
+        return employeeAccountRepository.findEmployeeByEmail(email);
+    }
+
+    public String addNewEmployeeAccount(EmployeeAccount employeeAccount) {
+        Optional<EmployeeAccount> employeeOptional = employeeAccountRepository
+                .findEmployeeByEmail(employeeAccount.getName());
+        if (employeeOptional.isPresent()) {
+            throw new IllegalStateException("Naam reeds bekend.");
+        }
+        employeeAccountRepository.save(employeeAccount);
+
+        return employeeAccount.getName() + " is toegevoegd aan het systeem.";
+    }
 }

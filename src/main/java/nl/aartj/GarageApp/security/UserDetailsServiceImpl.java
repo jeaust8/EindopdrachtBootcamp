@@ -25,10 +25,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public String userEmail;
 
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<EmployeeAccount> optionalEmployeeAccount = employeeAccountService.getAccountByEmail(email);
+        Optional<EmployeeAccount> optionalEmployeeAccount = employeeAccountService.getEmployeeByEmail(email);
 
         if (optionalEmployeeAccount.isEmpty()) {
-            Optional<CustomerAccount> optionalCustomerAccount = customerAccountService.getAccountByEmail(email);
+            Optional<CustomerAccount> optionalCustomerAccount = customerAccountService.getCustomerByEmail(email);
             CustomerAccount customerAccount = optionalCustomerAccount.get();
 
             if(optionalCustomerAccount.isPresent()){

@@ -21,18 +21,13 @@ public class ExaminationService {
         this.examinationRepository = examinationRepository;
     }
 
-    public List<Examination> getExaminations() {
+    public List<Examination> getApprovedExaminations() {
         ArrayList<Examination> examinations = new ArrayList<>();
         examinations.addAll(ExaminationRepository.findAll());
         int i = 0;
         for (Examination examination : examinations) {
             if (examination.isCarApproved(true).equalsIgnoreCase("apk_goedgekeurd")) {
                 examinations.remove(i);
-            }
-            else(Examination examination : examinations){
-                examination.isRepairNecessary(true).equalsIgnoreCase("reparatie_vereist")){
-                examinations.remove(i);
-                }
             }
             i++;
         }
@@ -44,7 +39,7 @@ public class ExaminationService {
         examinations.addAll(ExaminationRepository.findAll());
         int i = 1;
         for (Examination examination : examinations) {
-            if (examination.getStatus().equalsIgnoreCase("Reparatie_vereist")) {
+            if (examination.isCarApproved()) {
                 examinations.remove(i);
             }
             i++;
